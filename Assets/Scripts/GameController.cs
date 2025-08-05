@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VeryRareVentures;
+using GLTFast;
 
 public class GameController : MonoBehaviour
 {
     public GameObject startPanel;
     public GameObject pausePanel;
     public GameObject finishPanel;
-
+    public GameObject scorePanel;
 
     private bool isPaused = false; 
     public SessionManager sessionManager;
@@ -47,7 +48,13 @@ public class GameController : MonoBehaviour
         sessionManager.StartSessionManager();
         sessionManager.SetEquippedItemCall();
         startPanel.SetActive(false); // Hide the start panel
+        scorePanel.SetActive(true);
 
+    }
+    public void OnEquippedItemChanged(string itemGlbUrl, string itemImageUrl, string itemName)
+    {
+        Debug.Log("OnEquippedItemChanged: " + itemGlbUrl + " " + itemImageUrl + " " + itemName);
+        GameObject.FindObjectOfType<GltfAsset>().Url = itemGlbUrl;
     }
     public void PauseGame()
     {

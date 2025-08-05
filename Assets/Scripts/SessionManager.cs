@@ -105,6 +105,9 @@ public class SessionManager : MonoBehaviour
                 return;
             }
 
+
+            GameController gameController = FindObjectOfType<GameController>();
+            gameController.OnEquippedItemChanged(itemGlbUrl, itemImageUrl, itemName);
             // create a plane data object
             Debug.Log("OnEquippedItemChanged: " + itemGlbUrl);
             Debug.Log("OnEquippedItemChanged: " + itemImageUrl);
@@ -148,6 +151,9 @@ public class SessionManager : MonoBehaviour
                 return;
             }
 
+
+            GameController gameController = FindObjectOfType<GameController>();
+            gameController.OnEquippedItemChanged(itemGlbUrl, itemImageUrl, itemName);
             // create a plane data object
             Debug.Log("SetEquippedItem success: " + itemGlbUrl);
             Debug.Log("SetEquippedItem success: " + itemImageUrl);
@@ -208,7 +214,7 @@ public class SessionManager : MonoBehaviour
         try
         {
             StartGameSession(gameId);
-            SetPlayerInventory();
+
         }
         catch (Exception e)
         {
