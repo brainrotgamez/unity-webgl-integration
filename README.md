@@ -15,10 +15,10 @@ Load Assets/Scenes/SampleScene.unity to see how it's supposed to be set up.
 GLOBAL FUNCTIONS (window.*) FOR THE GAME TO CALL ( already in Assets/Plugins/WebGL/SessionManager.jslib )
 --------------------------------------------------------------------
 
-1. parent.window.startGameSession(gameId? = current, showToast? = true) → Promise<{ success, sessionId, gameId }>  
+1. window.startGameSession(gameId? = current, showToast? = true) → Promise<{ success, sessionId, gameId }>  
    • Creates (or re-uses) a backend game session, stores `window.currentGameSessionId`, and can trigger a toast.
 
-2. parent.window.reportScore(score, metadata = {}, complete = false) → Promise<{ success, … }>  
+2. window.reportScore(score, metadata = {}, complete = false) → Promise<{ success, … }>  
    • Sends incremental or final scores to `/api/game-session/score-update`.  
    • Auto-starts a session if needed.  
    • Emits browser events:  
@@ -26,10 +26,10 @@ GLOBAL FUNCTIONS (window.*) FOR THE GAME TO CALL ( already in Assets/Plugins/Web
      – `questCompleted` / `questProgress` (when quests update)  
    • On `complete === true`, marks the session finished and may force a Unity refresh for specific games.
 
-3. parent.window.setEquippedItem() → Promise<JSONStringified EquippedItem>  
+3. window.setEquippedItem() → Promise<JSONStringified EquippedItem>  
    • Fetches the player’s currently equipped item (`/api/users/equipped/:gameId`) and returns it as a JSON string.
 
-4. parent.window.hookTick() → Promise<{ …instructions… }>  
+4. window.hookTick() → Promise<{ …instructions… }>  
    • Call this each game “tick” (your desired cadence).  
    • Respond to any returned instructions:  
      – `pauseGame` / `resumeGame`  
