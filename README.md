@@ -1,5 +1,6 @@
-Quick-reference of the JavaScript hooks your Unity/WebGL game should use.  
+
 When the game is implemented in brainrotgamez.com, it will use these functions.
+
 If you'd like, you may use these function calls in your code to enable functionality with the site.
 (They won't work in the itch webgl display, only on brainrotgamez.com)
 
