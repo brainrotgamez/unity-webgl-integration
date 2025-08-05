@@ -3,8 +3,15 @@ When the game is implemented in brainrotgamez.com, it will use these functions.
 If you'd like, you may use these function calls in your code to enable functionality with the site.
 (They won't work in the itch webgl display, only on brainrotgamez.com)
 
+Please note the following files:
+- Assets/Plugins/WebGL/SessionManager.jslib ( javascript binding to unity functions )
+- Scripts/SessionManager.cs ( one required on gameobject in scene - request Game Id from admin in brainrotgamez discord )
+- Scripts/GameController.cs ( one required on gameobject in scene - with reference to sessionmanager - includes helper ui functions )
+
+Load Assets/Scenes/SampleScene.unity to see how it's supposed to be set up.
+
 --------------------------------------------------------------------
-GLOBAL FUNCTIONS (window.*) FOR THE GAME TO CALL
+GLOBAL FUNCTIONS (window.*) FOR THE GAME TO CALL ( already in Assets/Plugins/WebGL/SessionManager.jslib )
 --------------------------------------------------------------------
 
 1. parent.window.startGameSession(gameId? = current, showToast? = true) → Promise<{ success, sessionId, gameId }>  
