@@ -4,6 +4,10 @@ When the game is implemented in brainrotgamez.com, it will use these functions.
 If you'd like, you may use these function calls in your code to enable functionality with the site.
 (They won't work in the itch webgl display, only on brainrotgamez.com)
 
+add packages: 
+com.unity.nuget.newtonsoft-json
+com.unity.cloud.gltfast
+
 Please note the following files:
 - Assets/Plugins/WebGL/SessionManager.jslib ( javascript binding to unity functions )
 - Scripts/SessionManager.cs ( one required on gameobject in scene - request Game Id from admin in brainrotgamez discord )
